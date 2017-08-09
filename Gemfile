@@ -27,6 +27,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 # devise for authentication
 gem 'devise'
+# faker to create dummy data
+gem 'faker'
 # foreman allows any number of commands to be run at the same time and in the same window
 gem 'foreman'
 # Use Redis adapter to run Action Cable in production
@@ -49,4 +51,5 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# Not developing on windows, don't think I need this
+#gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
