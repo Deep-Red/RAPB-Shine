@@ -30,13 +30,30 @@ feature "Customer Search" do
     username = "#{Faker::Internet.user_name}#{rand(1000)}"
     email ||= "#{username}#{rand(1000)}@" + "#{Faker::Internet.domain_name}"
 
-    Customer.create!(
-    first_name: first_name,
-    last_name: last_name,
-    username: username,
-    email: email
+    customer = Customer.create!(
+      first_name: first_name,
+      last_name: last_name,
+      username: username,
+      email: email
     )
+
+    customer.create_customers_billing_address(address: create_address)
+    customer.customers_shipping_address.create!(address: create_address, primary: true)
+    customer
   end
+
+  def create_address
+    state = State.find_or_create_by!(
+      code: Faker::Address.state_abbr,
+      name: Faker::Address.state)
+
+    Address.create!(
+      street: Faker::Address.street_address,
+      city: Faker::Address.city,
+      state: state,
+      zipcode: Faker::Address.zip)
+  end
+
 
   scenario "Search by Name" do
     visit "/customers"
