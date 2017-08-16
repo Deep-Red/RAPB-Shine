@@ -8,7 +8,8 @@ import { RouterModule             } from "@angular/router";
 
 import { CustomerSearchComponent  } from "CustomerSearchComponent";
 import { CustomerDetailsComponent } from "CustomerDetailsComponent";
-
+import { CustomerInfoComponent }    from "CustomerDetailsComponent/CustomerInfoComponent"
+import { AddressComponent         } from "CustomerDetailsComponent/AddressComponent"
 //var RESULTS = [
 //  {
 //    first_name: "Pat",
@@ -70,7 +71,7 @@ var routing = RouterModule.forRoot(
 
 var CustomerAppModule = NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule, routing ],
-  declarations: [ CustomerSearchComponent, CustomerDetailsComponent, AppComponent ],
+  declarations: [ CustomerSearchComponent, CustomerDetailsComponent, CustomerInfoComponent, AddressComponent, AppComponent ],
   bootstrap:    [ AppComponent ]
 })
 .Class({
