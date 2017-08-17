@@ -2,9 +2,9 @@
   <form><div class="row">
     <div class="col-md-6">
 
-      <shine-customer-info></shine-customer-info>
+      <shine-customer-info bind-customer="customer"></shine-customer-info>
 
-      <shine-address></shine-address>
+      <shine-address addressType="Shipping" bind-address="customer.shipping_address"></shine-address>
 
     </div>
 
@@ -20,9 +20,11 @@
 
         <section class="panel-body">
 
-        <shine-credit-card></shine-credit-card>
+        <shine-credit-card bind-cardholder_id="customer.cardholder_id"></shine-credit-card>
 
-        <shine-address></shine-address>
+        <hr>
+
+        <shine-address addressType="Billing" bind-address="customer.billing_address"></shine-address>
 
         </section>
       </article>

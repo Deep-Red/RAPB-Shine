@@ -1,6 +1,7 @@
 import { Component }      from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Http           } from "@angular/http";
+import                         "rxjs/add/operator/map";
 import   template         from "./template.html";
 
 var CustomerDetailsComponent = Component({
@@ -25,11 +26,32 @@ var CustomerDetailsComponent = Component({
     var customerGetSuccess = function(response) {
       self.customer = response.json().customer;
     }
+    var parseCustomer = function(response) {
+      var customer = response.json().customer;
+
+      customer.billing_address = {
+        street:   customer.billing_street,
+        city:     customer.billing_city,
+        state:    customer.billing_state,
+        zipcode:  customer.billing_zipcode
+      };
+
+      customer.shipping_address = {
+        street:   customer.shipping_street,
+        city:     customer.shipping_city,
+        state:    customer.shipping_state,
+        zipcode:  customer.shipping_zipcode
+      };
+
+      return customer;
+    }
     var routeSuccess = function(params) {
-      self.http.get(
+      var observable = self.http.get(
         "/customers/" + params["id"] + ".json"
-      ).subscribe(
-        customerGetSuccess,
+      );
+      var mappedObservable = observable.map(parseCustomer)
+      mappedObservable.subscribe(
+        function(customer) { self.customer = customer; },
         observableFailed
       );
     }
