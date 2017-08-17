@@ -10,6 +10,7 @@ import { CustomerSearchComponent  } from "CustomerSearchComponent";
 import { CustomerDetailsComponent } from "CustomerDetailsComponent";
 import { CustomerInfoComponent }    from "CustomerDetailsComponent/CustomerInfoComponent"
 import { AddressComponent         } from "CustomerDetailsComponent/AddressComponent"
+import { CreditCardComponent      } from "CustomerDetailsComponent/CreditCardComponent"
 //var RESULTS = [
 //  {
 //    first_name: "Pat",
@@ -71,7 +72,7 @@ var routing = RouterModule.forRoot(
 
 var CustomerAppModule = NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule, routing ],
-  declarations: [ CustomerSearchComponent, CustomerDetailsComponent, CustomerInfoComponent, AddressComponent, AppComponent ],
+  declarations: [ CustomerSearchComponent, CustomerDetailsComponent, CustomerInfoComponent, AddressComponent, CreditCardComponent, AppComponent ],
   bootstrap:    [ AppComponent ]
 })
 .Class({
