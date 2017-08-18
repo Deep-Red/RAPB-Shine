@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 # faker to create dummy data
 gem 'faker'
+# csrf protection with Angular support
+gem 'angular_rails_csrf'
 # foreman allows any number of commands to be run at the same time and in the same window
 gem 'foreman'
 # Use Redis adapter to run Action Cable in production
