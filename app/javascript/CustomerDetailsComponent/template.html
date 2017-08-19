@@ -4,7 +4,7 @@
 
       <shine-customer-info bind-customer="customer" on-customerInfoChanged="saveCustomer($event)"></shine-customer-info>
 
-      <shine-address addressType="Shipping" bind-address="customer.shipping_address" on-addressChanged="saveShippingAddress($event)"></shine-address>
+      <shine-address addressType="Shipping" icon="plane" bind-address="customer.shipping_address" on-addressChanged="saveShippingAddress($event)"></shine-address>
 
     </div>
 
@@ -13,7 +13,10 @@
         <header class="panel-heading">
           <div class="row">
             <div class="col-md-12">
-              <h2 class="h4">Billing Info</h2>
+              <h2 class="h4">
+                <i class="glyphicon glyphicon-credit-card" aria-hidden="true"></i>
+                Billing Info
+              </h2>
             </div>
           </div>
         </header>

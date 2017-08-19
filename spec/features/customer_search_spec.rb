@@ -10,7 +10,7 @@ feature "Customer Search" do
 
     create_customer first_name: "Chris", last_name: "Aaron"
     create_customer first_name: "Pat", last_name: "Johnson"
-    create_customer first_name: "I.T.", last_name: "Pat"
+    create_customer first_name: "Ike", last_name: "Pat"
     create_customer first_name: "Patricia", last_name: "Dobbs"
 
     # This user is the one we'll expect to be listed first
@@ -75,7 +75,7 @@ feature "Customer Search" do
 
       expect(list_group_items[0]).to have_content("Patricia")
       expect(list_group_items[0]).to have_content("Dobbs")
-      expect(list_group_items[3]).to have_content("I.T.")
+      expect(list_group_items[3]).to have_content("Ike")
       expect(list_group_items[3]).to have_content("Pat")
     end
   end
@@ -101,7 +101,7 @@ feature "Customer Search" do
       expect(list_group_items[0]).to have_content("Jones")
       expect(list_group_items[1]).to have_content("Patricia")
       expect(list_group_items[1]).to have_content("Dobbs")
-      expect(list_group_items[3]).to have_content("I.T.")
+      expect(list_group_items[3]).to have_content("Ike")
       expect(list_group_items[3]).to have_content("Pat")
     end
     click_on "View Details...", match: :first

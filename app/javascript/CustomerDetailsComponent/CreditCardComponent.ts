@@ -2,18 +2,25 @@ import { Component } from "@angular/core";
 import { Http      } from "@angular/http";
 import   template    from "./CreditCardComponent.html";
 
+import { AjaxFailureHandler } from "../AjaxFailureHandler";
+
 var CreditCardComponent = Component({
   selector: "shine-credit-card",
   inputs: [
     "cardholder_id"
   ],
+  providers: [
+    AjaxFailureHandler
+  ],
   template: template
 }).Class({
   constructor: [
     Http,
-    function(http) {
+    AjaxFailureHandler,
+    function(http,ajaxFailureHandler) {
       this.http           = http;
       this.cardholder_id  = null;
+      this.ajaxFailureHandler = ajaxFailureHandler;
     }
   ],
   ngOnChanges: function(changes) {
@@ -33,9 +40,7 @@ var CreditCardComponent = Component({
       function(response) {
         self.credit_card_info = response.json().credit_card_info;
       },
-      function(response) {
-        window.alert(response);
-      }
+      self.ajaxFailureHandler.handler()
     );
   }
 });
